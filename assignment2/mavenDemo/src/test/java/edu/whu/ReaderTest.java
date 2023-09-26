@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ReaderTest {
     @Test
     void TestReader(){
-        assertEquals("edu.whu.Student",Reader.ReadResourceFile());
+        //类存在，判断正确
+        assertEquals("edu.whu.Student",Reader.ReadResourceFile("myClass"));
+        //类不存在但是键值对匹配，仍然判断正确
+        assertEquals("edu.whu.Teacher",Reader.ReadResourceFile("faClass"));
     }
 }

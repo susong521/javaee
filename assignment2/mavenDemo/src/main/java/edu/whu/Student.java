@@ -25,7 +25,7 @@ public class Student {
         }
     }
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        String className=Reader.ReadResourceFile();
+        String className=Reader.ReadResourceFile("myClass");
         Student s=Student.createAnObject(className);
         s.init();
         System.out.println("年龄："+s.age);

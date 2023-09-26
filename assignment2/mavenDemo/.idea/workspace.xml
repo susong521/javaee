@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c977aa17-684b-4bd7-b0f2-b81de9ef8686" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/whu/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/whu/Reader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/whu/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/whu/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/whu/initMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/whu/initMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/my.properies" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/my.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/my.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/whu/ReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/whu/ReaderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/whu/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/whu/StudentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,9 +42,9 @@
   <component name="MavenRunner">
     <option name="jreName" value="1.8" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2VnlOomGu4ILIxsGoqBdG1f0enl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -60,7 +58,8 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/cs/junior-1/JavaEE/main/assignment2/mavenDemo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,6 +77,63 @@
       <recent name="edu.whu" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="ReaderTest.TestReader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mavenDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.ReaderTest" />
+      <option name="METHOD_NAME" value="TestReader" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentTest.TestStudent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mavenDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.StudentTest" />
+      <option name="METHOD_NAME" value="TestStudent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentTest.TestTeacher" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mavenDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.StudentTest" />
+      <option name="METHOD_NAME" value="TestTeacher" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StudentTest.TestTeacher" />
+        <item itemvalue="JUnit.StudentTest.TestStudent" />
+        <item itemvalue="JUnit.ReaderTest.TestReader" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -87,6 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1695479697887</updated>
       <workItem from="1695479698959" duration="2874000" />
+      <workItem from="1695739051743" duration="926000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id="receiverImpl" class="edu.whu.receiverImpl">
+        <property name="Name" value="susong"/>
+    </bean>
+    <bean id="sender" class="edu.whu.sender">
+        <property name="Receiver" ref="receiverImpl"/>
+    </bean>
+</beans>

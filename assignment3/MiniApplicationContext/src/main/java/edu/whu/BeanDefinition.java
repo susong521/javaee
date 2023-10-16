@@ -18,7 +18,6 @@ public class BeanDefinition {
     public String getId(){
         return this.id;
     }
-
     public String getBeanClass() {
         return beanClass;
     }

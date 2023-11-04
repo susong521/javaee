@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,42 +32,49 @@ public class ProductController {
     ProductServiceImpl psl;
     @ApiOperation("提供id和请求体添加商品")
     @PostMapping("/add")
+    @PreAuthorize("hasAuthority('product/update')")
     public ResponseEntity<Product> addProduct(@ApiParam("请求体")@RequestBody Product myProduct){
         Product result=psl.addProduct(myProduct);
         return ResponseEntity.ok(result);
     }
     @ApiOperation("根据id删除对应商品信息")
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('product/update')")
     public ResponseEntity<Void> deleteProduct(@PathVariable int id){
         psl.removeProduct(id);
         return ResponseEntity.ok().build();
     }
     @ApiOperation("根据id更新对应商品信息")
     @PostMapping("/update")
+    @PreAuthorize("hasAuthority('product/update')")
     public ResponseEntity<Void> updateProduct(@RequestBody Product myProduct){
         psl.updateProduct(myProduct);
         return ResponseEntity.ok().build();
     }
     @ApiOperation("根据id查找对应商品信息")
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('product/query')")
     public ResponseEntity<Product> getProduct(@PathVariable int id){
         Product nowProduct = psl.getProduct(id);
         return nowProduct==null? ResponseEntity.noContent().build():ResponseEntity.ok(nowProduct);
     }
     @ApiOperation("查找售空的商品信息")
     @GetMapping("/empty")
+    @PreAuthorize("hasAuthority('product/query')")
     public ResponseEntity<List<Product>> findEmptyProduct(){
         List<Product> ProductList = psl.findEmpty();
         return ResponseEntity.ok(ProductList);
     }
     @ApiOperation("查找指定货物的供应商")
     @GetMapping("/{id}/supplier")
+    @PreAuthorize("hasAuthority('product/query')")
     public List<Supplier> findSuppliers(@PathVariable int id){
         List<Supplier> supplierList = psl.findSuppliers(id);
         return supplierList;
     }
     @ApiOperation("查找所有货物的供应商")
     @GetMapping("/allsuppliers")
+    @PreAuthorize("hasAuthority('product/query')")
     public List<Product> findAllSuppliers(){
         List<Product> mapList = psl.findAllSuppliers();
         return mapList;

@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    #type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/productmanagement?serverTimezone=UTC
+    username: root
+    password: cien2436
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+# 开启mp的日志（输出到控制台）
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 生成openssl rand -hex 64
+jwt:
+  secret: f2522288621c04bf9b182a129a19853080112a2b805973060684fb6484cb537c750596109d844a62f683a187d54c3cb5d54e8301530de30a43fb870b5dbf27f7
+

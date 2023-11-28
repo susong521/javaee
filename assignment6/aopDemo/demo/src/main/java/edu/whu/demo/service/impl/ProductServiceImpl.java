@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import edu.whu.demo.domain.Product;
 import edu.whu.demo.dao.ProductDao;
 import edu.whu.demo.domain.Supplier;
+import edu.whu.demo.exception.TodoException;
 import edu.whu.demo.service.IProductService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
     @Autowired
     private ProductDao productDao;
     @Override
-    public Product addProduct(Product myProduct) {
-        productDao.insert(myProduct);
+    public Product addProduct(Product myProduct) throws TodoException {
+        try{
+            productDao.insert(myProduct);
+        } catch (Exception e) {
+            throw new TodoException(TodoException.INPUT_ERROR,"添加失败");
+        }
         return myProduct;
     }
 

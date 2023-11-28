@@ -3,6 +3,7 @@ package edu.whu.demo.controller;
 
 import edu.whu.demo.domain.Product;
 import edu.whu.demo.domain.Supplier;
+import edu.whu.demo.exception.TodoException;
 import edu.whu.demo.service.IProductService;
 import edu.whu.demo.service.impl.ProductServiceImpl;
 import io.swagger.annotations.Api;
@@ -32,25 +33,43 @@ public class ProductController {
     @ApiOperation("提供id和请求体添加商品")
     @PostMapping("/add")
     public ResponseEntity<Product> addProduct(@ApiParam("请求体")@RequestBody Product myProduct){
-        Product result=psl.addProduct(myProduct);
+        Product result = null;
+        try{
+            result=psl.addProduct(myProduct);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok(result);
     }
     @ApiOperation("根据id删除对应商品信息")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable int id){
-        psl.removeProduct(id);
+        try{
+            psl.removeProduct(id);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok().build();
     }
     @ApiOperation("根据id更新对应商品信息")
     @PostMapping("/update")
     public ResponseEntity<Void> updateProduct(@RequestBody Product myProduct){
-        psl.updateProduct(myProduct);
+        try{
+            psl.updateProduct(myProduct);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok().build();
     }
     @ApiOperation("根据id查找对应商品信息")
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable int id){
-        Product nowProduct = psl.getProduct(id);
+        Product nowProduct = null;
+        try{
+            nowProduct=psl.getProduct(id);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return nowProduct==null? ResponseEntity.noContent().build():ResponseEntity.ok(nowProduct);
     }
     @ApiOperation("查找售空的商品信息")

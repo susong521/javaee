@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import edu.whu.demo.domain.Product;
 import edu.whu.demo.dao.ProductDao;
 import edu.whu.demo.domain.Supplier;
+import edu.whu.demo.exception.TodoException;
 import edu.whu.demo.service.IProductService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,24 +27,42 @@ public class ProductServiceImpl extends ServiceImpl<ProductDao, Product> impleme
     @Autowired
     private ProductDao productDao;
     @Override
-    public Product addProduct(Product myProduct) {
-        productDao.insert(myProduct);
+    public Product addProduct(Product myProduct) throws TodoException {
+        try {
+            productDao.insert(myProduct);
+        } catch (Exception e) {
+            throw new TodoException(TodoException.INPUT_ERROR,"添加失败");
+        }
         return myProduct;
     }
 
     @Override
-    public void removeProduct(int id) {
-        productDao.deleteById(id);
+    public void removeProduct(int id) throws TodoException {
+        try{
+            productDao.deleteById(id);
+        } catch (Exception e) {
+            throw new TodoException(TodoException.DELETE_ERROR,"商品不存在");
+        }
+
     }
 
     @Override
-    public void updateProduct(Product myProduct) {
-        productDao.updateById(myProduct);
+    public void updateProduct(Product myProduct) throws TodoException {
+        try{
+            productDao.updateById(myProduct);
+        } catch (Exception e) {
+            throw new TodoException(TodoException.UPDATE_ERROR,"更新失败");
+        }
     }
 
     @Override
-    public Product getProduct(int id) {
-        Product product=productDao.selectById(id);
+    public Product getProduct(int id) throws TodoException {
+        Product product;
+        try{
+            product=productDao.selectById(id);
+        } catch (Exception e) {
+            throw new TodoException(TodoException.GET_ERROR,"查询失败");
+        }
         return product;
     }
 

@@ -1,5 +1,6 @@
 package edu.whu.demo;
 
+import edu.whu.demo.exception.TodoException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -17,25 +18,43 @@ public class cmsController {
     @ApiOperation("提供id和请求体添加商品")
     @PostMapping("")
     public ResponseEntity<commodity> addCommodity(@ApiParam("请求体")@RequestBody commodity myCommodity){
-        commodity result=cms.addCommodity(myCommodity);
+        commodity result = null;
+        try{
+            result=cms.addCommodity(myCommodity);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok(result);
     }
     @ApiOperation("根据id删除对应商品信息")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCommodity(@PathVariable long id){
-        cms.removeCommodity(id);
+        try{
+            cms.removeCommodity(id);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok().build();
     }
     @ApiOperation("根据id更新对应商品信息")
     @PostMapping("/{id}")
     public ResponseEntity<Void> updateCommodity(@PathVariable long id,@RequestBody commodity myCommodity){
-        cms.updateCommodity(id,myCommodity);
+        try{
+            cms.updateCommodity(id,myCommodity);
+        } catch (TodoException e) {
+            ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok().build();
     }
     @ApiOperation("根据id查找对应商品信息")
     @GetMapping("/{id}")
     public ResponseEntity<commodity> getCommodity(@PathVariable long id){
-        commodity nowCommodity = cms.getCommodity(id);
+        commodity nowCommodity = null;
+        try{
+            nowCommodity = cms.getCommodity(id);
+        } catch (TodoException e) {
+           ResponseEntity.badRequest().build();
+        }
         return nowCommodity==null? ResponseEntity.noContent().build():ResponseEntity.ok(nowCommodity);
     }
     @ApiOperation("查找售空的商品信息")
